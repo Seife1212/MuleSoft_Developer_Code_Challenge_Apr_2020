@@ -1,0 +1,21 @@
+{
+  "response": {
+    "byteLength": {
+      "asLong": 2,
+      "present": true
+    },
+    "dataType": {
+      "mediaType": {
+        
+      },
+      "streamType": true,
+      "type": "dfdfd"
+    },
+    "length": {
+      "present": true
+    },
+    "value": {
+      
+    }
+  }
+}

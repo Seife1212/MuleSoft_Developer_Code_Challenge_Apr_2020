@@ -1,0 +1,20 @@
+{
+  "sampleData": {
+    "b8d1e567-43f7-4e60-9ead-de60e520046c": {
+      "vars-var1": "sample_data/object_1.dwl",
+      "vars-var2": "sample_data/object_2.dwl"
+    },
+    "8b9b35e0-3541-44e7-98a3-ae025f3e4516": {
+      "payload": "sample_data/unknown.dwl"
+    },
+    "29e091d6-a09a-4493-8aa6-a5a55f7204b8": {
+      "payload": "sample_data/json.json"
+    },
+    "cd630712-ee49-4568-acb9-9cf194427ccd": {
+      "attributes": "sample_data/object_3.dwl"
+    },
+    "5362eadc-fdb5-4042-8e86-b41b0033e776": {
+      "payload": "sample_data/defaultstringtype.dwl"
+    }
+  }
+}

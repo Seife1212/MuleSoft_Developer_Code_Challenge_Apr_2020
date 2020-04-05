@@ -1,0 +1,69 @@
+#%RAML 1.0
+version: v1
+title: HRMS
+baseUri: http://localhost:8081/api
+/employee:
+  post:
+    displayName: Employee record
+    body:
+      application/json:
+    responses:
+      201:
+        body:
+          application/json:
+            examples: 
+             message: Employee profile created
+      400:
+        body:
+          application/json:
+            examples:
+              message: Error creating employee profile
+/trigger:
+  get:
+    responses:
+      200:
+        description: Triggering post:\employee:employee-config flow
+        body:
+          application/json:
+            examples: 
+              message: Triggered flow payload
+/java:
+  get:
+    responses:
+      200:
+        description: Converting string to CamelCase
+        body:
+          application/json:
+            examples: 
+              message: CamelCase string payload
+/join:
+  get:
+    responses:
+      200:
+        description: Joining two inpt arrays
+        body:
+          application/json:
+            examples: 
+              message: Merged array payload
+/param:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            examples: 
+              message: Number required to generate array
+      400:
+        body:
+          application/json:
+            examples:
+              message: Error generating array
+  /{n}:
+    get:
+      responses:
+        200:
+          description: Generating array from URI Parameter
+          body:
+            application/json:
+              examples: 
+                message: URI param array payload

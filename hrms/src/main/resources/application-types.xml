@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="employee" format="json">
+      <types:shape format="weave" example="examples/Employee.json"><![CDATA[%dw 2.0
+
+type employee = {|
+  employee: {|
+    id: String, 
+    first_name: String, 
+    last_name: String
+  |}
+|} {"example": "{\"employee\":{\"id\":\"A007\",\"first_name\":\"Jan\",\"last_name\":\"Doe\"}}"}
+
+]]></types:shape>
+    </types:type>
+    <types:type name="response" format="json">
+      <types:shape format="weave" example="examples/response.json"><![CDATA[%dw 2.0
+
+type response = {|
+  certificate: Array<{|    id: String,     firstName: String,     LastName: String,     MarksBySubjectWise: {|      Maths: Number {"typeId": "int"},       English: Number {"typeId": "int"},       Arts: Number {"typeId": "int"},       Drawings: Number {"typeId": "int"}    |}  |}>
+|} {"example": "{\"certificate\":[{\"id\":\"XXX\",\"firstName\":\"XXX\",\"LastName\":\"YYY\",\"MarksBySubjectWise\":{\"Maths\":80,\"English\":90,\"Arts\":89,\"Drawings\":100}},{\"id\":\"XXX\",\"firstName\":\"XXX\",\"LastName\":\"YYY\",\"MarksBySubjectWise\":{\"Maths\":60,\"English\":80,\"Arts\":99,\"Drawings\":50}}]}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#8b9b35e0-3541-44e7-98a3-ae025f3e4516"/>
+  <types:enrichment select="#b8d1e567-43f7-4e60-9ead-de60e520046c">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="response"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#52dc1e19-ee1f-4e13-8855-74021594a1b4">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="response"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
